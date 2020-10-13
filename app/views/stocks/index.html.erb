@@ -1,0 +1,11 @@
+<h2>在庫管理システム</h2>
+  <%= link_to "商品・在庫追加", "/stocks/new"%>
+    <% @stocks.each do |stock| %>
+      <div class="goods">
+      トマト
+      </div>
+      <div class="goods-count">
+       <%= @stocks.count %>
+      </div>
+  <% end %>
+    
