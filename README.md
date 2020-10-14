@@ -23,19 +23,25 @@ Things you may want to cover:
 
 * ...
 
+# SROCK-APPの概要
+食品の在庫管理の機能と、店舗のスタッフ同士や配送業者の方々とチャットができる機能を組み合わせたアプリです
 
-# Chat-Space DB設計
+# アプリを作成した目的
+青果店で商品を冷蔵室に搬入するアルバイトをやっていた際に、特定の商品だけが異様に在庫を抱えていたり、逆に売り場に出さなければならない商品の在庫が切れているなどの事態がたびたび発生していました。
+その事態を防ぐために、食品の在庫管理をしながら店舗のスタッフや商品を搬入する運送業者と連携が取れるツールを作ってみたいと思い、作成しました。
+
+#  STOCKーAPP DB設計
 ## usersテーブル
 |colum|Type|Options|
 |-----|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|nickname|string|null: false, index: true|
+|staffname|string|null: false, index: true|
 ### Association
 -has_many :messages
--has_many :groups, through: :groups_users
+-has_many :groups, through: :group_users
 -has_many :groups_users
--has_many :items
+-has_many :stocks, through: :stores
 
 ## groupsテーブル
 |colum|Type|Options|
@@ -47,7 +53,7 @@ Things you may want to cover:
 -has_many :groups_users 
 
 
-## groups_usersテーブル
+## group_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -59,26 +65,27 @@ Things you may want to cover:
 ## messageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text||
+|content|text||
 |image|text||
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group
 
-## storeテーブル
+## storesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|store_name|text|nul: false, foreign_key: true|
--belongs_to :users
--belongs_to :item
+|store_id|integer|nul: false, foreign_key: true|
+|user_id|integer|nul: false, foreign_key: true|
+|stock_id|integer|nul: false, foreign_key: true|
+-belongs_to :user
+-belongs_to :stock
 
-## itemsテーブル
+## stocksテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_name|text|null: false|
-|item_id|integer|null: false, foreign_key: true|
 |stock|integer|null: false|
+|store_name|string|null: false|
+|user_name|string|null: false|
+|item_name|string|null: false|
 ### Association
-- has_many :users
+-has_many :users, through: :stores
