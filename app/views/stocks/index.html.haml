@@ -1,0 +1,24 @@
+%header#stock
+  .stocktop
+    %ul.stocktop__title
+      STOCKーAPP
+      %li.stocktop__title__user
+        聖徳八百屋
+      %li#store.stocktop__title__user
+        竹中
+  
+%main.menu
+  .menu__top
+    .menu__top__left
+      メニュー
+      %ul.menu__top__left__lists
+        %li.menu__top__left__lists__btn
+          = link_to "在庫確認", "show_stock_path",class: "menu__top__left__lists__btn__link"
+        %li.menu__top__left__lists__btn
+          = link_to "入荷・出荷入力", "edit_stock_path",class: "menu__top__left__lists__btn__link"
+        %li.menu__top__left__lists__btn
+          =link_to "チャット", "#",class: "menu__top__left__lists__btn__link"
+        %li.menu__top__left__lists__btn
+          =link_to "ログアウト", "#",class: "menu__top__left__lists__btn__link",id: "logout"
+    .menu__top__right
+      =image_tag 'vegetable.png'
