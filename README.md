@@ -36,7 +36,8 @@ Things you may want to cover:
 |-----|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|staffname|string|null: false, index: true|
+|store|string|null: false|
+|user|string|null: false, index: true|
 ### Association
 -has_many :messages
 -has_many :groups, through: :group_users
