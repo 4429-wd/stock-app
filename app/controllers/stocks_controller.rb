@@ -10,6 +10,12 @@ class StocksController < ApplicationController
     Stock.all
   end
 
+  def show
+  end
+
+  def edit
+  end
+
   private
   def count_params
     prams.permit(:count)

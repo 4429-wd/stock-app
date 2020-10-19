@@ -1,2 +1,32 @@
-<h2>お疲れちゃん</h2>
-<%= link_to 'トップページに戻る' '/stocks'%>
+%header.items
+  .items__show
+    .items__show__title
+      商品一覧
+
+%main.items-table
+  %table.items-table__space
+    %tr
+      %th
+        商品名
+      %th
+        在庫数
+      %th
+        在庫の増減
+    %tr
+      %td
+        トマト
+      %td
+        ２ケース  ６個入り
+      %td
+        アイコン
+    %tr
+      %td
+        トマト
+      %td
+        ２ケース  ６個入り
+      %td
+        アイコン
+
+%footer.totop
+ =render ="totop"
+  

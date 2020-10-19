@@ -1,0 +1,19 @@
+%header.add
+  .items__new
+    .items__new__title
+      新しい商品の追加
+
+.input-name
+  = form_with url: "#" do |form|
+    = form.text_field :key, placeholder: "商品名を入力",class: "input-name__form"
+    .input-name__form__btn
+      フォームの追加
+    #add.input-name__form__btn
+      以上の商品を追加
+
+%footer
+  =render "totop"
+
+      
+
+    
