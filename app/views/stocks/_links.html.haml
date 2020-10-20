@@ -1,0 +1,23 @@
+.top-side
+  .side-menu
+    %ul.side-menu__names
+      %li.side-menu__names__user
+        聖徳八百屋
+      %li.side-menu__names__user
+        竹中
+
+  .menu
+    .menu__top
+      メニュー
+      %ul.menu__top__lists
+        %li.menu__top__lists__links
+          = link_to "商品追加", "stocks/new",class: "menu__top__lists__links__btn"
+        %li.menu__top__lists__links
+          = link_to "商品取消", "stocks/destroy",class: "menu__top__lists__links__btn"
+        %li.menu__top__lists__links
+          =link_to "在庫数の増減", "stocks/edit",class: "menu__top__lists__links__btn"
+        %li.menu__top__lists__links
+          =link_to "チャット", "#",class: "menu__top__lists__links__btn"
+        %li.menu__top__lists__links
+          =link_to "ログアウト", "#",class: "menu__top__lists__links__btn",id: "logout"
+  
