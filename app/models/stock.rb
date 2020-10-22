@@ -1,3 +1,4 @@
 class Stock < ApplicationRecord
-  has_many :users, through: :stores
+  belongs_to :users,optional: true
+  validates :item, :stock, presence: true 
 end

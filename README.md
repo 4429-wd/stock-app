@@ -42,7 +42,7 @@ Things you may want to cover:
 -has_many :messages
 -has_many :groups, through: :group_users
 -has_many :groups_users
--has_many :stocks, through: :stores
+-has_many :stocks
 
 ## groupsテーブル
 |colum|Type|Options|
@@ -72,21 +72,10 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :group
 
-## storesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|store_id|integer|nul: false, foreign_key: true|
-|user_id|integer|nul: false, foreign_key: true|
-|stock_id|integer|nul: false, foreign_key: true|
--belongs_to :user
--belongs_to :stock
-
 ## stocksテーブル
 |Column|Type|Options|
 |------|----|-------|
 |stock|integer|null: false|
-|store_name|string|null: false|
-|user_name|string|null: false|
-|item_name|string|null: false|
+|item|string|null: false|
 ### Association
--has_many :users, through: :stores
+-belongs_to :user
