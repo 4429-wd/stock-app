@@ -1,21 +1,31 @@
 class StocksController < ApplicationController
   def index
+    @stock =Stock.all
   end
 
   def new
+    @stock = Stock.new
   end
 
-  def create
+  def create 
+    @stock = Stock.create(stock_params)
+    if @stock.save
+      flash[:success] = '入力できました'
+        redirect_to root_path
+    else
+      flash.now[:alert] = '入力できませんでした'
+      redirect_to root_path
+    end
   end
 
-  def show
+  def update
   end
 
-  def edit
+  def destroy
   end
-
   private
-  def count_params
-    prams.permit(:count)
+
+  def stock_params
+    params.permit(:item, :stock)
   end
 end

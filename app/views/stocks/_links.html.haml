@@ -11,11 +11,11 @@
       メニュー
       %ul.menu__top__lists
         %li.menu__top__lists__links
-          = link_to "商品追加", "stocks/new",class: "menu__top__lists__links__btn"
+          = link_to "商品追加", new_stock_path,class: "menu__top__lists__links__btn"
         %li.menu__top__lists__links
-          = link_to "商品取消", "stocks/destroy",class: "menu__top__lists__links__btn"
+          = link_to "商品取消", "#",class: "menu__top__lists__links__btn"
         %li.menu__top__lists__links
-          =link_to "在庫数の増減", "stocks/edit",class: "menu__top__lists__links__btn"
+          =link_to "在庫数の増減", "#",class: "menu__top__lists__links__btn"
         %li.menu__top__lists__links
           =link_to "チャット", "#",class: "menu__top__lists__links__btn"
         %li.menu__top__lists__links

@@ -1,0 +1,19 @@
+.primal
+  .primal__top
+    商品追加
+
+  .add
+    .add__area
+      追加する商品名を入力してください
+    .add-form__text
+      = form_with model: @stock, class: "add-form__text__stock" do |f|
+        .add-form__text__stock__item
+          = f.text_field :item, placeholder: "商品名を入力" 
+          = f.number_field :stock, placeholder: "在庫数を入力" 
+        .add-form__text__stock__plus
+          商品を更に追加
+    .form-decide
+      = form_with model: @stock do |f| 
+        =f.submit '以上の商品を追加', class: 'form-decide__btn'
+    .back
+      = link_to "戻る", root_path,class: "back__btn"

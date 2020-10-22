@@ -1,6 +1,6 @@
 .primal
   .primal__top
-    STOCKーAPP
+    商品取消
 
   .items-table
     .items-table__head
@@ -12,9 +12,12 @@
             商品名
           %th.stock
             在庫数
-      - @stock.each do |stock|
+          %th.inc-dec
+            
         %tr
           %td
-            =stock.item
+            トマト
           %td
-            =stock.stock
+            2
+          %td
+            取消
