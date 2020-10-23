@@ -8,6 +8,11 @@
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
         .field
+        .field
+          .field-label
+            = f.label :store
+          .field-input
+            = f.text_field :store
           .field-label
             = f.label :name
           .field-input
