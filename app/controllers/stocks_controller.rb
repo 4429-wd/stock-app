@@ -8,13 +8,12 @@ class StocksController < ApplicationController
   end
 
   def create 
-    @stock = Stock.create(stock_params)
+    @stock = Stock.new(stock_params)
     if @stock.save
-      flash[:success] = '入力できました'
-        redirect_to root_path
-    else
-      flash.now[:alert] = '入力できませんでした'
       redirect_to root_path
+    else
+      flash.now[:alert] = '必要項目を入力してください'
+      render :'new'
     end
   end
 
@@ -26,6 +25,6 @@ class StocksController < ApplicationController
   private
 
   def stock_params
-    params.permit(:item, :stock)
+    params.require(:stock).permit(:item,:stock)
   end
 end
