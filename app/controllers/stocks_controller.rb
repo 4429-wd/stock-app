@@ -1,5 +1,8 @@
 class StocksController < ApplicationController
+  before_action :login_required
+
   def index
+    @users = User.all
     @stock =Stock.all
   end
 
@@ -23,6 +26,13 @@ class StocksController < ApplicationController
   def destroy
   end
   private
+
+  def login_required 
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to new_user_session_path
+    end
+  end
 
   def stock_params
     params.require(:stock).permit(:item,:stock)
