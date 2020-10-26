@@ -1,6 +1,6 @@
 .primal
   .primal__top
-    在庫の増減
+    在庫の取消・増減
 
   .items-table
     .items-table__head
@@ -12,12 +12,16 @@
             商品名
           %th.stock
             在庫数
+          %th.del
+            取消
           %th.inc-dec
-            在庫の増減
+            増減
+      - @stocks.each do |stock|
         %tr
           %td
-            トマト
+            =stock.item
           %td
-            2
+            =stock.stock
           %td
-            増やす　減らす
+            = link_to icon('fa','trash'),stock_path(stock.id), method: :delete, data: { confirm: '削除してよろしいですか?' }
+          %td
