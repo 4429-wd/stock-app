@@ -3,7 +3,7 @@ class StocksController < ApplicationController
 
   def index
     @users = User.all
-    @stock =Stock.all
+    @stocks =Stock.all
   end
 
   def new
@@ -20,10 +20,20 @@ class StocksController < ApplicationController
     end
   end
 
+  def show
+    stocks = stock_url(params[:id])
+    @stocks = Stock.all
+  end
+
   def update
+
   end
 
   def destroy
+    @stock = Stock.find(params[:id])
+    if @stock.destroy
+      redirect_to root_path
+    end
   end
   private
 
