@@ -2,7 +2,6 @@ class StocksController < ApplicationController
   before_action :login_required
 
   def index
-    @users = User.all
     @stock =Stock.all
   end
 
@@ -11,8 +10,7 @@ class StocksController < ApplicationController
   end
 
   def create 
-    @stock = Stock.new(stock_params)
-    if @stock.save
+    if Stock.create(stock_params)
       redirect_to root_path
     else
       flash.now[:alert] = '必要項目を入力してください'
