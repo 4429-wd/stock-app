@@ -24,8 +24,15 @@ class StocksController < ApplicationController
     @stocks = Stock.all
   end
 
-  def update
+  def edit
+    stocks = stock_url(params[:id])
+    @stocks = Stock.all
+  end
 
+  def update
+    stocks = stock_url(params[:id])
+    @stocks = Stock.all
+    redirect_to root_path
   end
 
   def destroy
@@ -44,6 +51,7 @@ class StocksController < ApplicationController
   end
 
   def stock_params
-    params.require(:stock).permit(:item,:stock)
+    params.require(:stock).permit(:name,:count,:shipment)
   end
+
 end

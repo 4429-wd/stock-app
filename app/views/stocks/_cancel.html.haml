@@ -14,14 +14,17 @@
             在庫数
           %th.del
             取消
-          %th.inc-dec
-            増減
+
       - @stocks.each do |stock|
         %tr
           %td
-            =stock.item
+            =stock.name
           %td
-            =stock.stock
+            =stock.count
           %td
-            = link_to icon('fa','trash'),stock_path(stock.id), method: :delete, data: { confirm: '削除してよろしいですか?' }
-          %td
+            =link_to icon('fa','trash'),stock_path(stock.id), method: :delete, data: { confirm: '削除してよろしいですか?' }
+      
+    .back
+      = link_to "戻る", root_path,class: "back__btn"
+
+
