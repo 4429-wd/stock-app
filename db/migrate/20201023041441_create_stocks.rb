@@ -1,8 +1,10 @@
 class CreateStocks < ActiveRecord::Migration[5.2]
   def change
     create_table :stocks do |t|
-      t.integer :stock ,null: false
-      t.string :item, null: false
+      t.string :name ,null: false
+      t.integer :count ,null: false
+      t.integer :shipment 
+
       t.timestamps
     end
   end
