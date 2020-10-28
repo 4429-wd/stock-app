@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'stocks#index'
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
   resources :stocks, only: [:index, :new,:show, :create, :update, :edit, :destroy] 
   resources :users, only: [:index, :edit, :update]
   resources :groups, only: [:new, :create, :edit, :update] do  
