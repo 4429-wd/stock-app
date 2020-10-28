@@ -30,8 +30,7 @@ class StocksController < ApplicationController
   end
 
   def update
-    stocks = stock_url(params[:id])
-    @stocks = Stock.all
+
     redirect_to root_path
   end
 
@@ -53,5 +52,7 @@ class StocksController < ApplicationController
   def stock_params
     params.require(:stock).permit(:name,:count,:shipment)
   end
+
+
 
 end
