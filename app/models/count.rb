@@ -1,8 +1,4 @@
-class Count < ActiveRecord::Basel
-  belong_to :stock
-
-  def self_total
-    stock.count + stock.shipment.to_i
-  end
+class Count < ActiveRecord::Base
+  belongs_to :stock
 
 end
