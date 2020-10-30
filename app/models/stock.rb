@@ -1,5 +1,6 @@
 class Stock < ApplicationRecord
   belongs_to :users, optional: true
-  
-  Stock.sum(:count)
+
+  validates :name, :count, presence: true
+  validates :name, uniqueness: true
 end
