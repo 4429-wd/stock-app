@@ -10,12 +10,14 @@ class StocksController < ApplicationController
     @stock = Stock.new
   end
 
-  def create 
-    if Stock.create(stock_params)
+  def create
+    @stock = Stock.new(stock_params)
+    if @stock.save
       redirect_to root_path
+      return
     else
-      flash.now[:alert] = '必要項目を入力してください'
-      render :'new'
+      flash.now[:alert] = '追加できませんでした'
+      render :new
     end
   end
 
@@ -24,13 +26,8 @@ class StocksController < ApplicationController
     @stocks = Stock.all
   end
 
-  def edit
-    stocks = stock_url(params[:id])
-    @stocks = Stock.all
-  end
-
   def update
-    stocks = stock_url(params[:id])
+    @stocks = stock_url(params[:id])
     @stocks = Stock.all
     redirect_to root_path
   end
@@ -51,7 +48,7 @@ class StocksController < ApplicationController
   end
 
   def stock_params
-    params.require(:stock).permit(:name,:count,:shipment)
+    params.require(:stock).permit(:name,:count)
   end
 
 end

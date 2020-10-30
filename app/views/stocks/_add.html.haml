@@ -6,7 +6,7 @@
     .add__area
       追加する商品名を入力してください
     .add-form__text
-      = form_with model: @stock,  class: "add-form__text__stock" do |f|
+      = form_with model: @stock, url: stocks_path, class: "add-form__text__stock" do |f|
         .add-form__text__stock__item
           = f.text_field :name, placeholder: "商品名を入力" 
           = f.number_field :count, placeholder: "在庫数を入力" 
