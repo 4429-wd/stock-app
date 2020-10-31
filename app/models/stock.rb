@@ -3,4 +3,6 @@ class Stock < ApplicationRecord
 
   validates :name, :count, presence: true
   validates :name, uniqueness: true
+
+
 end

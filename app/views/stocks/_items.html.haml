@@ -1,6 +1,6 @@
 .primal
   .primal__top
-    STOCK-APP 出荷・入荷
+    STOCK-APP 入荷・出荷
 
   .items-table
     .items-table__head
@@ -16,15 +16,14 @@
             在庫の増減
 
       - @stocks.each do |stock|
-        %tr
+        %tr.items-data
           %td
             =stock.name
-          %td
+          %td#stock-origin
             =stock.count
           %td
-            =form_with model: @stock,method: :get do |f|
-              =f.number_field :count , placeholder: "増減数を入力"
+            =link_to "更新",edit_stock_path(stock.id)
 
-    .items-table__update
-      =link_to "更新"
+
+
 

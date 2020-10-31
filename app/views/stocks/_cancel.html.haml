@@ -1,6 +1,6 @@
 .primal
   .primal__top
-    STOCK-APP 商品の取消
+    STOCK-APP 商品取消
 
   .items-table
     .items-table__head
@@ -22,7 +22,7 @@
           %td
             =stock.count
           %td
-            =link_to icon('fa','trash'),stock_path(stock.id), method: :delete, data: { confirm: '削除してよろしいですか?' }
+            =link_to "取消",stock_path(stock.id), method: :delete, data: { confirm: '削除してよろしいですか?' }
       
     .back
       = link_to "戻る", root_path,class: "back__btn"
