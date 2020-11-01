@@ -1,6 +1,5 @@
 class StocksController < ApplicationController
   before_action :login_required
-  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -33,15 +32,10 @@ class StocksController < ApplicationController
   end
 
   def update
-    @stock = Stock.find(params[:id])
-    if @stocs
-      redirect_to root_path
-      return
-    else
-      flash.now[:alert] = '追加できませんでした'
-      render :edit 
-    end
-  end
+    @stocks = Stock.find(params[:id])
+    @stocks.update(update_params)
+    redirect_to root_path
+  end 
 
   def destroy
     @stock = Stock.find(params[:id])
@@ -58,12 +52,12 @@ class StocksController < ApplicationController
     end
   end
 
-  def stock_params
-    params.require(:stock).permit(:name,:count)
+  def update_params
+    params.permit(:count)
   end
 
-  def total_params
-    params.permit(:count)
+  def stock_params
+    params.require(:stock).permit(:name,:count)
   end
 
 end

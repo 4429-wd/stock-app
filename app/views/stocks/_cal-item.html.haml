@@ -13,17 +13,17 @@
         %tr
           %th.stock
             現在の在庫数
+          %th.shipment
+            在庫数の更新
 
         %tr
           %td
-            =form_with model: @stock do |f|
-              =f.number_field :count ,url: stocks_path, placeholder: "増減数を入力"
-
-    .items-table__update
-      =link_to "更新",stock_path(@stocks.id), method: :patch, data: { confirm: '在庫数を変更しますか？' }      
-      
-           
-      
+            =@stocks.count
+          %td
+            =form_with model: @stock,url: stock_path,method: :put do |f|
+              =f.number_field :count , placeholder: "新規の在庫数"
+              =f.submit "更新する"
+                
 
 
       
