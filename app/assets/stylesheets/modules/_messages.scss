@@ -12,7 +12,7 @@
   color: $white;
   .user-name{
     height: 100px;
-    background-color: $side_blue_dark;
+    background-color: $tomato;
     display: flex;
     align-items: center;
     font-size: $size_middium;
@@ -38,7 +38,7 @@
 
 .group-list{
   height: calc(100vh - 100px);
-  background-color: $side_blue_light;
+  background-color: $carrot;
   font-family: bold;
   padding: 0 20px;
   .groups{

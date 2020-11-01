@@ -87,5 +87,4 @@ end
 gem 'haml-rails'
 gem "font-awesome-sass"
 gem 'jquery-rails'
-gem 'payjp'
 gem 'aws-sdk-s3', require: false
